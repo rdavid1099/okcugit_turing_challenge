@@ -54,10 +54,12 @@ module OkCuGit
     end
 
     def clear_temp_folder
-      `rm -rf #{raw_repo_name}`
+      Dir.chdir("..")
+      `rm -rf temp`
     end
 
     def clone_repo
+      `mkdir temp`
       Dir.chdir("temp")
       `git clone #{repo_name}`
     end
