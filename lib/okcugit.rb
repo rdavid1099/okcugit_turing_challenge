@@ -17,7 +17,7 @@ module OkCuGit
       splited = strip_out_authors(data)
       splited.map do |data|
         split_authors_and_email(data)
-      end
+      end.uniq.sort
     end
 
     def split_authors_and_email(data)
