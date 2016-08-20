@@ -54,7 +54,7 @@ module OkCuGit
     end
 
     def clear_temp_folder
-      `rm -rf #{repo_name}`
+      `rm -rf #{raw_repo_name}`
     end
 
     def clone_repo
@@ -65,6 +65,7 @@ module OkCuGit
     def get_contributors
       Dir.chdir("#{raw_repo_name}")
       @raw_contributors = `git log`
+      Dir.chdir("..")
     end
   end
 end
